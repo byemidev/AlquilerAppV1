@@ -1,8 +1,15 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container-fluid">
+    <div>
+        <!-- TODO: reederizado de vista parcial: _LayoutPickerDate ==done--></>
+        <partial name="_LayoutDatePicker"/> 
+    </div>
+    <div>
+        <!-- reederizado de vista parcial: _LayoutCoches + JavaScript for filtering data--></>
+        <partial name="_LayoutDataCars" />
+    </div>
 </div>
