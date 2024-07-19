@@ -17,7 +17,7 @@ namespace AlquilerAppV1.Controllers
             _userManager = userManager;
         }
 
-            public IActionResult Index()
+        public IActionResult Index()
         {
             return View();
         }

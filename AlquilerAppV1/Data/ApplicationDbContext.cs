@@ -51,11 +51,5 @@ namespace AlquilerAppV1.Data
                 .HasForeignKey(ma => ma.ModeloId);
 
         }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer("Server=DESKTOP-7EGUBGJ;Initial Catalog=AlquilerVehiculos;User ID=sa;Password=1234;Encrypt=True;Trust Server Certificate=True");
-        }
-
     }
 }
