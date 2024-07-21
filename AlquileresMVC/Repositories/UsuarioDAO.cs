@@ -1,3 +1,6 @@
+using AlquileresMVC.Data;
+using AlquileresMVC.Models;
+
 namespace AlquileresMVC.Repositories
 {
     public class UsuarioDAO : IUsuarioDAO
@@ -16,7 +19,11 @@ namespace AlquileresMVC.Repositories
 
         public void InsertReserva(Reserva reserva){
             _context.Reserva.Add(reserva);
-            _context.Reserva.SaveChanges();
+            _context.SaveChanges();
+        }
+
+        public  List<Reserva> GetReservas(int id) { 
+            return _context.Reserva.Where(e => e.Id == id).ToList();
         }
     }
 }
