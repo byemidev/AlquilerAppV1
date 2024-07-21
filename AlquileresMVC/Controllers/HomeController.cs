@@ -1,11 +1,20 @@
-using System.Diagnostics;
+
 using Microsoft.AspNetCore.Mvc;
-using AlquileresMVC.Models;
 
 namespace AlquileresMVC.Controllers;
 
 public class HomeController : Controller
 {
+    private readonly ILogger<HomeController> _logger;
+    private readonly IConfiguration _configuration;
+   
+
+    public HomeController(ILogger<HomeController> logger, IConfiguration config)
+    {
+        _logger = logger;
+        
+    }
+
   
     public IActionResult Index()
     {
@@ -22,5 +31,8 @@ public class HomeController : Controller
     {
         return View();
     }
+
+    //custom logic
+    //controller 
 
 }
