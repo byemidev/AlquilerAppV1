@@ -8,7 +8,6 @@ namespace AlquileresMVC.Controllers;
 
 public class HomeController : Controller
 {
-<<<<<<< HEAD
     private readonly ILogger<HomeController> _logger;
     private readonly IConfiguration _configuration;
     private readonly SqlConnection _connection; 
@@ -23,9 +22,7 @@ public class HomeController : Controller
         _connection = new SqlConnection(config.GetConnectionString("DefaultConnection"));
     }
 
-=======
   
->>>>>>> main
     public IActionResult Index()
     {
         return View();
@@ -42,7 +39,6 @@ public class HomeController : Controller
         return View();
     }
 
-<<<<<<< HEAD
     //custom logic
     //controller 
 
@@ -50,6 +46,4 @@ public class HomeController : Controller
         //TODO: send data from db
         return View(_descriptions);
     }
-=======
->>>>>>> main
 }

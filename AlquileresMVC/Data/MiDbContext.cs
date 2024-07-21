@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using AlquileresMVC.Models;
+
 namespace AlquileresMVC.Data {
     public class MiDbContext : DbContext {
         public MiDbContext(DbContextOptions<MiDbContext> options) : base(options)

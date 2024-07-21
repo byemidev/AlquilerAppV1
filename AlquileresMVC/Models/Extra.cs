@@ -1,3 +1,5 @@
+
+
 namespace AlquileresMVC.Models {
     public class Extra {
         [Key]
