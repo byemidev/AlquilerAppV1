@@ -8,6 +8,7 @@ namespace AlquileresMVC.Controllers;
 
 public class HomeController : Controller
 {
+<<<<<<< HEAD
     private readonly ILogger<HomeController> _logger;
     private readonly IConfiguration _configuration;
     private readonly SqlConnection _connection; 
@@ -22,22 +23,26 @@ public class HomeController : Controller
         _connection = new SqlConnection(config.GetConnectionString("DefaultConnection"));
     }
 
+=======
+  
+>>>>>>> main
     public IActionResult Index()
     {
         return View();
     }
 
-    public IActionResult Privacy()
+
+    public IActionResult Vehiculo()
     {
         return View();
     }
 
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public IActionResult Error()
+    public IActionResult LoginAdmin()
     {
-        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        return View();
     }
 
+<<<<<<< HEAD
     //custom logic
     //controller 
 
@@ -45,4 +50,6 @@ public class HomeController : Controller
         //TODO: send data from db
         return View(_descriptions);
     }
+=======
+>>>>>>> main
 }

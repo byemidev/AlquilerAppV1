@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
 using AlquileresMVC.Data;
 using Microsoft.EntityFrameworkCore;
 
@@ -17,6 +21,12 @@ builder.Services.AddTransient<IReservaDAO, ReservaDAO>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+
+// Le paso la conexión al contexto de admin
+builder.Services.AddDbContext<AdminDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString
+     ("DefaultConnection")));
 
 var app = builder.Build();
 

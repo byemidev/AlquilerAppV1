@@ -1,0 +1,559 @@
+/*======================================================================
+
+Project : Rent Car HTML Template
+Version : 1.0
+Author  : A.M.Roomi
+Email   : amroomi@gmail.com
+Profile : http://www.codester.com/modernthemes
+
+----------------------------------------------------------------------
+                    ***** TABLE OF CONTENTS *****
+----------------------------------------------------------------------
+  01. General
+  02. Header
+  03. Slider
+  04. Enquiry
+  05. Snippet
+  06. Offers
+  07. Testimonial
+  08. Inner Slider
+  09. About & Services
+  10. Pricing Table
+  11. Blog
+  12. Portfolio
+  13. Vehicle Details
+  14. Contact
+  15. Footer
+  16. Media Queries
+
+======================================================================*/
+
+
+/******************************
+  01. General
+******************************/
+
+a {
+    color: #555;
+}
+
+.form-control:focus {
+    border-color: #171c24;
+}
+
+
+/******************************
+  02. Header
+******************************/
+
+.page-header {
+    background: #c91c23 none repeat scroll 0 0;
+}
+
+.header-tagline {
+    color: #fff;
+}
+
+.header-tagline:hover {
+    color: #fff54d;
+}
+
+.page-header .menu-tagline .navbar ul>li>a {
+    color: #333;
+}
+
+.page-header #main-menu .dropdown-menu {
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.page-header #main-menu .dropdown-menu a {
+    color: #fff;
+}
+
+.page-header #main-menu .dropdown-menu a:active,
+.page-header #main-menu .dropdown-menu a:hover,
+.page-header #main-menu .dropdown-menu a:focus {
+    background-color: rgba(0, 0, 0, 1);
+}
+
+
+/******************************
+  03. Slider
+******************************/
+
+.slider-description {
+    color: #fff;
+}
+
+.slider-description a,
+.slider-description button {
+    border: 1px solid #fff;
+    color: #fff;
+}
+
+.slider-description a:hover,
+.slider-description button:hover {
+    color: #c91c23;
+    background: #fff none repeat scroll 0 0;
+}
+
+.owl-theme .owl-controls .owl-page.active span,
+.owl-theme .owl-controls.clickable .owl-page:hover span {
+    background: #c91c23 none repeat scroll 0 0;
+}
+
+
+/******************************
+  04. Enquiry
+******************************/
+
+.main-enquiry {
+    background: rgba(255, 255, 255, 0.8) none repeat scroll 0 0;
+    border-bottom: 3px solid #c91c23;
+}
+
+.main-enquiry ul {
+    background-color: #c91c23;
+}
+
+.main-enquiry ul li a {
+    color: #fff;
+}
+
+.main-enquiry ul li.active a,
+.main-enquiry ul li:hover a {
+    color: #555;
+}
+
+
+/******************************
+  05. Snippet
+******************************/
+
+.home-snippet {
+    color: #fff;
+    background: #c91c23 none repeat scroll 0 0;
+}
+
+.snippet-divider {
+    border-top: 1px solid #fff;
+}
+
+.snippet-button {
+    background-color: #c91c23;
+    border: 1px solid #fff;
+    color: #fff;
+}
+
+.snippet-button:hover {
+    background-color: #fff;
+    color: #c91c23;
+}
+
+
+/******************************
+  06. Offers
+******************************/
+
+.offers-slider .item .vehicle-details {
+    background: -webkit-linear-gradient(bottom, rgba(23, 28, 36, 0), rgba(23, 28, 36, 1));
+    background: -o-linear-gradient(bottom, rgba(23, 28, 36, 0), rgba(23, 28, 36, 1));
+    background: -moz-linear-gradient(bottom, rgba(23, 28, 36, 0), rgba(23, 28, 36, 1));
+    background: linear-gradient(to bottom, rgba(23, 28, 36, 0), rgba(23, 28, 36, 1));
+    color: #fff;
+}
+
+.offers-slider .owl-controls .owl-buttons div {
+    color: #333333;
+    background: #fff none repeat scroll 0 0;
+    border: 1px solid #333333;
+}
+
+.offers-slider .owl-controls .owl-buttons div:hover {
+    color: #c91c23;
+    border: 1px solid #c91c23;
+}
+
+
+/******************************
+  07. Testimonial
+******************************/
+
+.testimonial {
+    background: rgba(0, 0, 0, 0) url('../img/testimonial-bg.jpg') no-repeat fixed 0 0 / cover;
+    color: #fff;
+}
+
+
+/******************************
+  08. Inner Slider
+******************************/
+
+.inner-slider {
+    background: rgba(0, 0, 0, 0) url('../img/inner-slider-bg.jpg') no-repeat fixed 0 100% / cover;
+}
+
+.inner-slider h1 {
+    color: #fff;
+}
+
+.inner-header {
+    background: #c91c23 none repeat scroll 0 0;
+    color: #fff;
+}
+
+
+/******************************
+  09. About & Services
+******************************/
+
+.material-box .box {
+    border: 1px solid #ddd;
+}
+
+.material-box .box-icon {
+    background-color: #c91c23;
+}
+
+.material-box .box-icon span {
+    color: #fff;
+}
+
+.material-box .info>p {
+    color: #717171;
+}
+
+.material-box .info>a {
+    background-color: #03a9f4;
+    color: #fff;
+}
+
+.material-box .info>a:hover {
+    background-color: #0288d1;
+    color: #fff;
+}
+
+.other-service-box .other-service-icon {
+    background: #c91c23 none repeat scroll 0 0;
+    color: #fff;
+}
+
+.other-service-info h4 {
+    color: #c91c23;
+}
+
+.panel-group .panel-heading a {
+    color: #c91c23;
+}
+
+
+/******************************
+  10. Pricing Table
+******************************/
+
+.pricing-table-primary {
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 1);
+}
+
+.pricing-table .title,
+.pricing-table-primary .title {
+    background-color: #454545;
+    border-bottom: 1px solid #818181;
+    border-top: 3px solid #292d30;
+    color: #ffffff;
+}
+
+.pricing-table .price,
+.pricing-table-primary .price {
+    background-color: #636363;
+    color: #ffffff;
+}
+
+.pricing-table .price small,
+.pricing-table-primary .price small {
+    color: #cccccc;
+}
+
+.pricing-table .pricing-table-content,
+.pricing-table-primary .pricing-table-content {
+    background-color: #f9f9f9;
+    border-bottom: 3px solid #ffffff;
+    border-top: 3px solid #ffffff;
+    color: #727272;
+}
+
+.pricing-table .pricing-table-content li,
+.pricing-table-primary .pricing-table-content li {
+    border-bottom: 1px solid #ffffff;
+}
+
+.pricing-table .order-now,
+.pricing-table-primary .order-now {
+    background-color: #e3e3e3;
+    color: #ffffff;
+}
+
+.pricing-table .order-now a,
+.pricing-table .order-now button,
+.pricing-table-primary .order-now a,
+.pricing-table-primary .order-now button {
+    color: #ffffff;
+}
+
+.pricing-table .order-now a,
+.pricing-table .order-now button,
+.pricing-table-primary .order-now a,
+.pricing-table-primary .order-now button {
+    background-color: #292d30;
+}
+
+
+/******************************
+  11. Blog
+******************************/
+
+.blog-post h3 {
+    border-bottom: 1px solid #e1e1e1;
+}
+
+.blog-post h3 a {
+    color: #555;
+}
+
+.blog-tags a,
+.blog-footer a {
+    color: #555;
+}
+
+.blog-post h3 a:hover,
+.blog-tags a:hover,
+.blog-footer a:hover {
+    color: #c91c23;
+}
+
+.blog-sidebar .list-group a {
+    border-color: #ccc #fff #fff;
+}
+
+blockquote {
+    background: #e1e1e1 none repeat scroll 0 0;
+    border-left: 5px solid #c91c23;
+}
+
+.social-icons-comment li a {
+    color: #a5abb7;
+}
+
+.social-icons-comment li a:hover {
+    color: #c91c23;
+}
+
+.btn-enquiry,
+.btn-enquiry:hover,
+.btn-reply,
+.btn-reply:hover,
+.btn-comment,
+.btn-comment:hover {
+    background: #c91c23 none repeat scroll 0 0;
+    color: #fff !important;
+}
+
+.strength {
+    background: #22313f none repeat scroll 0 0;
+    border-bottom: 2px solid #c91c23;
+}
+
+.strength>div>div>div {
+    color: #fff;
+}
+
+.box-socail-icon {
+    background-color: #c91c23;
+}
+
+.box-socail-icon span {
+    color: #fff;
+}
+
+.search-field i {
+    color: #ccc;
+}
+
+
+/******************************
+  12. Portfolio
+******************************/
+
+.portfolio .filtr-container .item-desc {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+}
+
+.offer-ribbon,
+.latest-ribbon,
+.sale-ribbon {
+    border-color: #000 #000 transparent transparent;
+}
+
+.offer-ribbon span,
+.latest-ribbon span,
+.sale-ribbon span {
+    color: #fff;
+}
+
+.offer-ribbon {
+    border-color: #8e0c0c #8e0c0c transparent transparent;
+}
+
+.latest-ribbon {
+    border-color: #026aa3 #026aa3 transparent transparent;
+}
+
+.sale-ribbon {
+    border-color: #a38523 #a38523 transparent transparent;
+}
+
+
+/******************************
+  13. Vehicle Details
+******************************/
+
+.vehicle-detail-slider .owl-controls .owl-buttons .owl-prev,
+.vehicle-detail-slider .owl-controls .owl-buttons .owl-next {
+    color: #fff;
+}
+
+.tags.price {
+    background: #c91c23 none repeat scroll 0 0;
+    color: #fff;
+}
+
+.tags.price span {
+    border-right: 15px solid #c91c23;
+}
+
+.vehicle-extra-info a.list-group-item {
+    border-color: #ccc #fff #fff;
+}
+
+.vehicle-extra-info a.list-group-item i {
+    color: #c91c23;
+}
+
+.pagination>li>a,
+.pagination>li>span,
+.pagination>li>a:hover,
+.pagination>li>span:hover,
+.pagination>li>a:focus,
+.pagination>li>span:focus {
+    background-color: #fff;
+    color: #555;
+}
+
+.pagination>.active>a,
+.pagination>.active>span,
+.pagination>.active>a:hover,
+.pagination>.active>span:hover,
+.pagination>.active>a:focus,
+.pagination>.active>span:focus {
+    background-color: #c91c23;
+    border: 1px solid #ddd;
+    color: #fff;
+}
+
+.pagination>li>a:hover,
+.pagination>li>span:hover,
+.pagination>li>a:focus,
+.pagination>li>span:focus {
+    background-color: #c91c23;
+    border: 1px solid #ddd;
+    color: #fff;
+}
+
+
+/******************************
+  14. Contact
+******************************/
+
+.contact-row {
+    background: #171c24 none repeat scroll 0 0;
+    border-bottom: 2px solid #c91c23;
+}
+
+.contact-row h4 {
+    color: #fff;
+}
+
+.contact-button {
+    background-color: #171c24;
+    border: 1px solid #fff;
+    color: #fff;
+}
+
+.contact-button:hover {
+    background-color: #fff;
+    color: #171c24;
+}
+
+
+/******************************
+  15. Footer
+******************************/
+
+.footer-header {
+    color: #c91c23;
+}
+
+.footerlinks li a {
+    color: #333;
+}
+
+.footer-bottom {
+    border-top: 1px solid #ccc;
+    color: #666;
+}
+
+.social-icon-footer li a span {
+    color: #666;
+}
+
+.social-icon-footer li a:hover span {
+    color: #c91c23;
+}
+
+
+/******************************
+  16. Media Queries
+******************************/
+
+@media (max-width: 991px) {
+    .main-enquiry {
+        background-color: rgba(255, 255, 255, 1);
+    }
+}
+
+@media (max-width: 767px) {
+    .page-header nav {
+        background-color: #fff;
+        border-color: #fff;
+    }
+    .page-header nav .navbar-toggle:hover,
+    .page-header nav .navbar-toggle:focus,
+    .page-header nav .navbar-toggle:active {
+        background-color: #fff;
+    }
+    .page-header nav .navbar-toggle .icon-bar {
+        background-color: #c91c23;
+    }
+    .page-header #main-menu {
+        background-color: rgba(0, 0, 0, 0.9);
+    }
+    .page-header #main-menu ul li a {
+        color: #fff;
+    }
+    .page-header #main-menu ul li a:active,
+    .page-header #main-menu ul li a:hover,
+    .page-header #main-menu ul li a:focus {
+        background-color: rgba(0, 0, 0, 1);
+    }
+}
