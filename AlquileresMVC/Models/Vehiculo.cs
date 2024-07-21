@@ -1,3 +1,7 @@
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
+
+
 namespace Alquileres.Models {
     public class Vehiculo {
         [Key]

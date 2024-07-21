@@ -1,6 +1,10 @@
-﻿namespace AlquileresMVC.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
+
+
+namespace AlquileresMVC.Models
 {
-    public class User
+    public class Usuario
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
