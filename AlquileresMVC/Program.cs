@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> main
 using AlquileresMVC.Data;
 using Microsoft.EntityFrameworkCore;
 
@@ -23,7 +19,7 @@ builder.Services.AddTransient<IReservaDAO, ReservaDAO>();
 builder.Services.AddControllersWithViews();
 
 
-// Le paso la conexión al contexto de admin
+// Le paso la conexiï¿½n al contexto de admin
 builder.Services.AddDbContext<AdminDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString
      ("DefaultConnection")));
