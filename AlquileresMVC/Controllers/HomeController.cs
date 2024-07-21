@@ -18,6 +18,9 @@ public class HomeController : Controller
         return View();
     }
 
-
+    public IActionResult LoginAdmin()
+    {
+        return View();
+    }
 
 }

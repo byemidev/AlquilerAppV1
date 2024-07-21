@@ -87,8 +87,8 @@ a:hover {
 
 .page-header {
     border: none;
-    margin: 0;
-    padding: 10px 0 0 0;
+    margin: 0px 0px 0px 0px;
+    padding: 10px 0px 0px 0px;
 }
 
 .page-header .logo,
@@ -113,7 +113,7 @@ a:hover {
 
 .page-header .menu-tagline .navbar {
     margin-bottom: 0 !important;
-    min-height: auto !important; /* Ajuste para adaptarse al contenido */
+    min-height: 30px !important;
     z-index: 2;
 }
 
@@ -122,18 +122,12 @@ a:hover {
     margin-bottom: 0;
 }
 
-    .page-header .menu-tagline .navbar ul > li {
-        margin: 0 !important; /* Elimina el margen entre los elementos de la lista */
-    }
-
-    .page-header .menu-tagline .navbar ul > li > a {
-        padding-top: 5px !important;
-        padding-bottom: 5px !important;
-        text-transform: uppercase !important;
-        font-size: 20px !important; /* Ajusta el tamaño de la fuente según sea necesario */
-        margin: 0 !important; /* Asegúrate de que no haya margen extra */
-    }
-
+.page-header .menu-tagline .navbar ul>li>a {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-transform: uppercase;
+    font-size: 12px;
+}
 
 
 /******************************

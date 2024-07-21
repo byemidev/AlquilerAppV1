@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Rent Car - Home</title>
+
+    <link rel="stylesheet" href="~/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="~/css/login.css" type="text/css" />
+</head>
+
+<body>
+    <!-- PAGE HEADER START -->
+    <div class="page-header fixed-top" style="background-color: red;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-3 logo">
+                    <a asp-controller="Home" asp-action="Index"><img src="~/img/logo.png" alt="Logo" class="img-responsive"></a>
+                </div>
+                <div class="col-md-9 d-flex align-items-center justify-content-end">
+                    <ul class="nav" style="list-style-type: none; padding: 0; margin: 0; display: flex;">
+                        <li style="margin-right: 30px;">
+                            <a href="@Url.Action("Index", "Home")" style="text-decoration: none; color: white; font-size: 18px; font-weight: 600; transition: color 0.3s;">Inicio</a>
+                        </li>
+                        <li style="margin-right: 30px;">
+                            <a href="@Url.Action("Vehiculo", "Home")" style="text-decoration: none; color: white; font-size: 18px; font-weight: 600; transition: color 0.3s;">Vehículos</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("LoginAdmin", "Home")" style="text-decoration: none; color: white; font-size: 18px; font-weight: 600; transition: color 0.3s;">Iniciar Sesión</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- PAGE HEADER END -->
+
+    <div class="login">
+        <h1>Iniciar Sesión</h1>
+        <form method="post">
+            <input type="text" name="u" placeholder="Usuario" required="required" />
+            <input type="password" name="p" placeholder="Contraseña" required="required" />
+            <button type="submit" class="btn btn-primary btn-block btn-large">Entrar</button>
+        </form>
+    </div>
+</body>
+
+</html>
