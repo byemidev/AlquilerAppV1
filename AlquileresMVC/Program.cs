@@ -1,4 +1,5 @@
 using AlquileresMVC.Data;
+using AlquileresMVC.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
