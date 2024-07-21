@@ -1,0 +1,435 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Alquilar Coche - Portafolio</title>
+
+    <!-- FAVICON -->
+    <link rel="icon" href="~/favicon.png">
+
+    <!-- BOOTSTRAP CSS -->
+    <link rel="stylesheet" href="~/css/bootstrap.min.css" type="text/css" />
+
+    <!-- FONT AWESOME AND FONT STYLE -->
+    <link rel="stylesheet" href="~/plugins/font-awesome/css/font-awesome.min.css" type="text/css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+
+    <!-- CUSTOM THEME -->
+    <link rel="stylesheet" href="~/css/style.css" type="text/css" />
+    <!-- COLOR SCHEME -->
+    <link rel="stylesheet" href="~/css/red.css" type="text/css" />
+    <!-- <link rel="stylesheet" href="css/brown.css" type="text/css" /> -->
+    <!-- <link rel="stylesheet" href="css/green.css" type="text/css" /> -->
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div class="page-preloader"></div>
+    <!-- PAGE HEADER START -->
+    <div class="page-header" style="background-color: red;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-3 logo">
+                    <a asp-controller="Home" asp-action="Index"><img src="~/img/logo.png" alt="Logo" class="img-responsive"></a>
+                </div>
+                <div class="col-md-9 d-flex align-items-center justify-content-end">
+                    <ul class="nav" style="list-style-type: none; padding: 0; margin: 0; display: flex;">
+                        <li style="margin-right: 30px;">
+                            <a href="@Url.Action("Index", "Home")" style="text-decoration: none; color: white; font-size: 18px; font-weight: 600; transition: color 0.3s;">Inicio</a>
+                        </li>
+                        <li style="margin-right: 30px;">
+                            <a href="@Url.Action("Vehiculo", "Home")" style="text-decoration: none; color: white; font-size: 18px; font-weight: 600; transition: color 0.3s;">Vehículos</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("LoginAdmin", "Home")" style="text-decoration: none; color: white; font-size: 18px; font-weight: 600; transition: color 0.3s;">Iniciar Sesión</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- PAGE HEADER END -->
+    <!-- INNER SLIDER START -->
+    <div class="inner-slider">
+        <div class="container">
+            <section class="row">
+                <div class="col-sm-8 col-md-6">
+                    <h1>Alquiler de Coches - <br />Los Mejores Precios y Ofertas para tu Viaje Ideal</h1>
+
+                </div>
+            </section>
+        </div>
+    </div>
+    <!-- INNER SLIDER END -->
+    <!-- INNER HEADER START -->
+    <div class="inner-header">
+        <div class="container">
+            <h3>Vehículos</h3>
+        </div>
+    </div>
+    <!-- INNER HEADER END -->
+    <!-- PORTFOLIO START -->
+    <div class="portfolio">
+        <div class="container">
+            <h3>Conoce Nuestros Vehículos y sus nombres</h3>
+
+            <div class="row">
+                <ul class="list-inline list-unstyled simplefilter">
+                    <li class="active" data-filter="all">Todos</li>
+                    <li data-filter="1">Coches</li>
+                    <li data-filter="2">Furgonetas</li>
+                    <li data-filter="3">Autobuses</li>
+                    <li data-filter="4">Deportivos</li>
+                    <li data-filter="5">4x4</li>
+                </ul>
+            </div>
+
+            <div class="row">
+                <div class="filtr-container">
+                    <div class="col-xs-6 col-sm-4 col-md-3 filtr-item" data-category="1, 5" data-sort="Calles concurridas">
+                        <img class="img-responsive img-picture" src="~/img/vehicle/car_01.jpg" alt="imagen de muestra">
+                        <span class="item-desc">El Rápido</span>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 filtr-item" data-category="2, 5" data-sort="Noche luminosa">
+                        <img class="img-responsive img-picture" src="~/img/vehicle/van_01.jpg" alt="imagen de muestra">
+                        <span class="item-desc">Luz de Luna</span>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 filtr-item" data-category="1, 4" data-sort="Maravillas de la ciudad">
+                        <img class="img-responsive img-picture" src="~/img/vehicle/suv_01.jpg" alt="imagen de muestra">
+                        <span class="item-desc">Explorador Urbano</span>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 filtr-item" data-category="3" data-sort="En producción">
+                        <img class="img-responsive img-picture" src="~/img/vehicle/4x4_cabs_01.jpg" alt="imagen de muestra">
+                        <span class="item-desc">Fuerza Bruta</span>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 filtr-item" data-category="3, 4" data-sort="Sitio industrial">
+                        <img class="img-responsive img-picture" src="~/img/vehicle/motor_bike_01.jpg" alt="imagen de muestra">
+                        <span class="item-desc">Máquina de Trabajo</span>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 filtr-item" data-category="2, 4" data-sort="Lago pacífico">
+                        <img class="img-responsive img-picture" src="~/img/vehicle/car_06.jpg" alt="imagen de muestra">
+                        <span class="item-desc">Oasis Rodante</span>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 filtr-item" data-category="1, 5" data-sort="Luces de la ciudad">
+                        <img class="img-responsive img-picture" src="~/img/vehicle/van_02.jpg" alt="imagen de muestra">
+                        <span class="item-desc">Brillo Nocturno</span>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 filtr-item" data-category="2, 4" data-sort="Casa de ensueño">
+                        <img class="img-responsive img-picture" src="~/img/vehicle/suv_02.jpg" alt="imagen de muestra">
+                        <span class="item-desc">Refugio Soñado</span>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 filtr-item" data-category="3" data-sort="Máquinas inquietas">
+                        <img class="img-responsive img-picture" src="~/img/vehicle/4x4_cabs_02.jpg" alt="imagen de muestra">
+                        <span class="item-desc">Titanes de la Ruta</span>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 filtr-item" data-category="1, 5" data-sort="Calles concurridas">
+                        <img class="img-responsive img-picture" src="~/img/vehicle/car_07.jpg" alt="imagen de muestra">
+                        <span class="item-desc">El Conquistador</span>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 filtr-item" data-category="2, 5" data-sort="Noche luminosa">
+                        <img class="img-responsive img-picture" src="~/img/vehicle/van_03.jpg" alt="imagen de muestra">
+                        <span class="item-desc">Estrella Fugaz</span>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 filtr-item" data-category="1, 4" data-sort="Maravillas de la ciudad">
+                        <img class="img-responsive img-picture" src="~/img/vehicle/suv_03.jpg" alt="imagen de muestra">
+                        <span class="item-desc">Aventura Metropolitana</span>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 filtr-item" data-category="3" data-sort="En producción">
+                        <img class="img-responsive img-picture" src="~/img/vehicle/4x4_cabs_03.jpg" alt="imagen de muestra">
+                        <span class="item-desc">Fuerza en Movimiento</span>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 filtr-item" data-category="3, 4" data-sort="Sitio industrial">
+                        <img class="img-responsive img-picture" src="~/img/vehicle/car_08.jpg" alt="imagen de muestra">
+                        <span class="item-desc">Potencia Industrial</span>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 filtr-item" data-category="2, 4" data-sort="Lago pacífico">
+                        <img class="img-responsive img-picture" src="~/img/vehicle/suv_04.jpg" alt="imagen de muestra">
+                        <span class="item-desc">Reflejo de Serenidad</span>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 filtr-item" data-category="1, 5" data-sort="Luces de la ciudad">
+                        <img class="img-responsive img-picture" src="~/img/vehicle/car_09.jpg" alt="imagen de muestra">
+                        <span class="item-desc">Destello Urbano</span>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 filtr-item" data-category="2, 4" data-sort="Casa de ensueño">
+                        <img class="img-responsive img-picture" src="~/img/vehicle/suv_05.jpg" alt="imagen de muestra">
+                        <span class="item-desc">Sueño Rodante</span>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 filtr-item" data-category="3" data-sort="Máquinas inquietas">
+                        <img class="img-responsive img-picture" src="~/img/vehicle/car_10.jpg" alt="imagen de muestra">
+                        <span class="item-desc">Fuerza Inquieta</span>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 filtr-item" data-category="1, 5" data-sort="Calles concurridas">
+                        <img class="img-responsive img-picture" src="~/img/vehicle/suv_06.jpg" alt="imagen de muestra">
+                        <span class="item-desc">Rey de la Ciudad</span>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 filtr-item" data-category="2, 5" data-sort="Noche luminosa">
+                        <img class="img-responsive img-picture" src="~/img/vehicle/car_11.jpg" alt="imagen de muestra">
+                        <span class="item-desc">Brillo Radiante</span>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 filtr-item" data-category="1, 4" data-sort="Maravillas de la ciudad">
+                        <img class="img-responsive img-picture" src="~/img/vehicle/suv_07.jpg" alt="imagen de muestra">
+                        <span class="item-desc">Aventura Espectacular</span>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 filtr-item" data-category="3" data-sort="En producción">
+                        <img class="img-responsive img-picture" src="~/img/vehicle/car_12.jpg" alt="imagen de muestra">
+                        <span class="item-desc">Fuerza en Crecimiento</span>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 filtr-item" data-category="3, 4" data-sort="Sitio industrial">
+                        <img class="img-responsive img-picture" src="~/img/vehicle/car_13.jpg" alt="imagen de muestra">
+                        <span class="item-desc">Titanes de la Industria</span>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 filtr-item" data-category="2, 4" data-sort="Lago pacífico">
+                        <img class="img-responsive img-picture" src="~/img/vehicle/car_14.jpg" alt="imagen de muestra">
+                        <span class="item-desc">Serenidad en Movimiento</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PORTFOLIO END -->
+    <!-- CONTACT ROW START -->
+    <div class="contact-row">
+        <div class="container">
+            <section class="row">
+                <div class="col-md-8">
+                    <h4>¿Alguna Consulta o Pregunta Adicional? <a class="btn contact-button" href="contact_us.html">Contáctenos</a></h4>
+                </div>
+
+                <div class="col-md-4 social-icons">
+                    <ul class="list-inline list-unstyled">
+                        <li>
+                            <a target="_blank" href="#">
+                                <img src="~/img/social_icon/facbook.png" alt="Facebook">
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="#">
+                                <img src="~/img/social_icon/flicker.png" alt="Flicker">
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="#">
+                                <img src="~/img/social_icon/gplus.png" alt="Google Plus">
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="#">
+                                <img src="~/img/social_icon/tweeter.png" alt="Twitter">
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="#">
+                                <img src="~/img/social_icon/you-tube.png" alt="YouTube">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </div>
+    <!-- CONTACT ROW END -->
+    <!-- FOOTER START -->
+    <div class="footer">
+        <div class="container">
+            <section class="row">
+                <div class="col-md-7">
+                    <section class="row">
+                        <div class="col-sm-4">
+                            <h4 class="footer-header">Servicios</h4>
+
+                            <ul class="list-unstyled footerlinks">
+                                <li>
+                                    <a href="#">Alquiler de Coches</a>
+                                </li>
+                                <li>
+                                    <a href="#">Alquiler de Motocicletas</a>
+                                </li>
+                                <li>
+                                    <a href="#">Explorar Áreas</a>
+                                </li>
+                                <li>
+                                    <a href="#">Paquetes Turísticos</a>
+                                </li>
+                                <li>
+                                    <a href="#">Concesionarios de Automóviles</a>
+                                </li>
+                                <li>
+                                    <a href="#">Gestión de Flotas</a>
+                                </li>
+                                <li>
+                                    <a href="#">Bodas</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="col-sm-3">
+                            <h4 class="footer-header">Vehículos</h4>
+
+                            <ul class="list-unstyled footerlinks">
+                                <li>
+                                    <a href="#">Coches</a>
+                                </li>
+                                <li>
+                                    <a href="#">Furgonetas</a>
+                                </li>
+                                <li>
+                                    <a href="#">Jeeps</a>
+                                </li>
+                                <li>
+                                    <a href="#">Autobuses</a>
+                                </li>
+                                <li>
+                                    <a href="#">Taxis Dobles</a>
+                                </li>
+                                <li>
+                                    <a href="#">Motocicletas</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="col-sm-5">
+                            <h4 class="footer-header">Contáctenos</h4>
+
+                            <p><strong>Alquilar Coche - Los Mejores Coches Económicos</strong><br />123, Su Ubicación, Su Calle, Su Ciudad, Su País</p>
+
+                            <p><strong>Teléfono:</strong><br />+01 234 567 890</p>
+
+                            <p><strong>Fax:</strong><br />+01 234 567 890</p>
+
+                            <p><strong>Email:</strong><br /><a href="mailto:email@your-website.com" target="_top">email@su-sitio-web.com</a></p>
+                        </div>
+                    </section>
+                </div>
+
+                <div class="col-md-5">
+                    <h4 class="footer-header">Otros Servicios</h4>
+
+                    <div class="row other-services">
+                        <div class="col-xs-6 col-sm-3 col-md-6 other-service">
+                            <a href="#" target="_blank">
+                                <img src="~/img/other_service_img/explore-srilanka.png" class="img-responsive" alt="Paquetes Turísticos">
+                            </a>
+                        </div>
+
+                        <div class="col-xs-6 col-sm-3 col-md-6 other-service">
+                            <a href="#" target="_blank">
+                                <img src="~/img/other_service_img/motorbike-srilanka.png" class="img-responsive" alt="Alquiler y Venta de Motocicletas">
+                            </a>
+                        </div>
+
+                        <div class="col-xs-6 col-sm-3 col-md-6 other-service">
+                            <a href="#">
+                                <img src="~/img/other_service_img/car-india.png" class="img-responsive" alt="Proveedor de Servicios de Alquiler de Coches">
+                            </a>
+                        </div>
+
+                        <div class="col-xs-6 col-sm-3 col-md-6 other-service">
+                            <a href="#">
+                                <img src="~/img/other_service_img/motorcar-deals.png" class="img-responsive" alt="Concesionarios de Automóviles">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="row footer-bottom">
+                <div class="col-sm-6">
+                    <ul class="list-inline list-unstyled social-icon-footer">
+                        <li>
+                            <a href="#">
+                                <span class="fa fa-facebook fa-2x"></span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                <span class="fa fa-flickr fa-2x"></span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                <span class="fa fa-google-plus fa-2x"></span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                <span class="fa fa-twitter fa-2x"></span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                <span class="fa fa-youtube fa-2x"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-sm-6 text-right copyright">
+                    <p>Copyright &copy; 2017 Alquilar Coche - Los Mejores Coches Económicos. Todos los Derechos Reservados.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FOOTER END -->
+    <!-- SCROLL TO TOP START -->
+    <a class="scroll-top" id="scroll-top" data-toggle="tooltip" data-placement="top" title="Volver Arriba"></a>
+    <!-- SCROLL TO TOP END -->
+    <!-- JQUERY -->
+    <script src="~/js/jquery.min.js" type="text/javascript"></script>
+
+    <!-- Modernizr -->
+    <script src="~/js/modernizr.js"></script>
+
+    <!-- BOOTSTRAP JS -->
+    <script src="~/js/bootstrap.min.js" type="text/javascript"></script>
+
+    <!-- SCROLL TO TOP -->
+    <script src="~/plugins/scroll-to-top/jquery.scrollToTop.min.js" type="text/javascript"></script>
+
+    <!-- PARALLAX EFFECT -->
+    <script src="~/plugins/jquery_parallax/jquery.parallax-1.1.3.js"></script>
+    <script src="~/plugins/jquery_parallax/jquery.localscroll-1.2.7-min.js"></script>
+    <script src="~/plugins/jquery_parallax/jquery.scrollTo-1.4.2-min.js"></script>
+
+    <!-- SLICKHOVER -->
+    <script src="~/plugins/slickhover/jquery.slickhover.js" type="text/javascript"></script>
+
+    <!-- ********** PAGE SPECIFIC SCRIPTS START ********** -->
+    <!-- PORTFOLIO FILTER -->
+    <script src="~/plugins/filterizr/jquery.filterizr.min.js" type="text/javascript"></script>
+    <!-- ********** PAGE SPECIFIC SCRIPTS END ********** -->
+    <!-- ********** PAGE SPECIFIC CUSTOM SCRIPTS START ********** -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //PORTFOLIO GALLERY
+            $('.filtr-container').filterizr();
+            $('.portfolio .simplefilter>li').click(function () {
+                $('.portfolio .simplefilter>li').removeClass('active');
+                $(this).addClass('active');
+            });
+
+            //PARALLAX EFFECT
+            $('.inner-slider').parallax('0', '100%');
+        });
+    </script>
+    <!-- ********** PAGE SPECIFIC CUSTOM SCRIPTS END ********** -->
+    <!-- CUSTOM SCRIPT -->
+    <script src="~/js/application.js" type="text/javascript"></script>
+</body>
+
+</html>

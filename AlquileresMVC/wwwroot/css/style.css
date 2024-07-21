@@ -1,0 +1,1009 @@
+/*======================================================================
+
+Project : Rent Car HTML Template
+Version : 1.0
+Author  : A.M.Roomi
+Email   : amroomi@gmail.com
+Profile : http://www.codester.com/modernthemes
+
+----------------------------------------------------------------------
+                    ***** TABLE OF CONTENTS *****
+----------------------------------------------------------------------
+  01. General
+  02. Header
+  03. Slider
+  04. Enquiry
+  05. Snippet
+  06. Offers
+  07. Testimonial
+  08. Inner Slider
+  09. About & Services
+  10. Pricing Table
+  11. Blog
+  12. Portfolio
+  13. Vehicle Details
+  14. Contact
+  15. Footer
+  16. Media Queries
+
+======================================================================*/
+
+
+/******************************
+  01. General
+******************************/
+
+* {
+    -webkit-border-radius: 0 !important;
+    -moz-border-radius: 0 !important;
+    border-radius: 0 !important;
+    outline: none !important;
+    font-family: 'Roboto', sans-serif;
+}
+
+.no-js #loader {
+    display: none;
+}
+
+.js #loader {
+    display: block;
+    position: absolute;
+    left: 100px;
+    top: 0;
+}
+
+.page-preloader {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: url(../img/page-loader.gif) center no-repeat #fff;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Oswald', sans-serif !important;
+}
+
+a:focus,
+a:hover {
+    text-decoration: none;
+}
+
+.form-control:focus {
+    box-shadow: none;
+}
+
+
+/******************************
+  02. Header
+******************************/
+
+.page-header {
+    border: none;
+    margin: 0px 0px 0px 0px;
+    padding: 10px 0px 0px 0px;
+}
+
+.page-header .logo,
+.page-header .menu-tagline {
+    max-height: 73px;
+}
+
+.page-header .logo img {
+    max-width: 265px;
+    max-height: 72px;
+}
+
+.header-tagline {
+    text-decoration: none;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.header-tagline:hover {
+    text-decoration: none;
+}
+
+.page-header .menu-tagline .navbar {
+    margin-bottom: 0 !important;
+    min-height: 30px !important;
+    z-index: 2;
+}
+
+.page-header .menu-tagline .navbar .navbar-toggle {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.page-header .menu-tagline .navbar ul>li>a {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+
+/******************************
+  03. Slider
+******************************/
+
+.main-slider .item img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.main-slider.owl-theme .owl-controls {
+    bottom: 20px;
+    left: 50%;
+    padding: 20px;
+    position: absolute;
+}
+
+.main-slider.owl-theme .owl-controls .owl-page span {
+    border-radius: 0;
+    height: 4px;
+    margin: 3px;
+    width: 28px;
+}
+
+.slider-description {
+    width: 570px;
+    float: right;
+    font-size: 20px;
+    font-weight: 300;
+    left: 50%;
+    line-height: 1em;
+    padding: 20px;
+    position: absolute;
+    top: 40px;
+}
+
+.slider-description h1 {
+    font-size: 32px;
+    text-transform: uppercase;
+    line-height: 1em;
+    font-weight: 700;
+}
+
+
+/******************************
+  04. Enquiry
+******************************/
+
+.main-enquiry {
+    width: 40%;
+    padding: 10px;
+    float: left;
+    position: absolute;
+    right: 52%;
+    top: 125px;
+    z-index: 1;
+}
+
+.main-enquiry .intl-tel-input {
+    width: 100%;
+}
+
+.main-enquiry ul li a {
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.main-enquiry div.tab-content {
+    padding-top: 20px;
+}
+
+
+/******************************
+  05. Snippet
+******************************/
+
+.home-snippet {
+    padding: 20px 0px 0px 0px;
+    border: none;
+}
+
+.home-snippet>.container>.row {
+    margin: 0px -15px 20px -15px;
+}
+
+.snippet-divider {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.snippet-button {
+    margin-top: -20px;
+    position: relative;
+}
+
+
+/******************************
+  06. Offers
+******************************/
+
+.offers-slider .item {
+    margin: 10px;
+}
+
+.offers-slider .item a img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.offers-slider .item .vehicle-details {
+    bottom: 40px;
+    left: 0;
+    padding: 10px;
+    position: relative;
+    width: 100%;
+}
+
+.offers-slider .owl-controls {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.offers-slider .owl-controls .owl-buttons div {
+    font-size: 30px;
+    width: 45px;
+}
+
+
+/******************************
+  07. Testimonial
+******************************/
+
+.testimonial {
+    min-height: 280px;
+    padding: 50px 0;
+}
+
+.testimonial-slider .item img {
+    width: 50px;
+    height: 50px;
+}
+
+.similar-items img {
+    width: 100%;
+}
+
+
+/******************************
+  08. Inner Slider
+******************************/
+
+.inner-slider {
+    min-height: 305px;
+    background-size: cover;
+    box-sizing: border-box;
+    padding-top: 50px;
+    overflow: hidden;
+}
+
+.inner-slider h1 {
+    font-size: 44px;
+    font-weight: 700;
+}
+
+.inner-header>.container {
+    padding-bottom: 10px;
+}
+
+
+/******************************
+  09. About & Services
+******************************/
+
+.material-box {
+    margin-bottom: 50px;
+}
+
+.material-box .box {
+    padding: 10px 25px;
+    text-align: right;
+    display: block;
+    margin-top: 60px;
+}
+
+.material-box .box-icon {
+    display: table;
+    height: 50px;
+    margin: 0 auto;
+    width: 50px;
+    margin-top: -32px;
+}
+
+.material-box .box-icon span {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.material-box .info h4 {
+    font-size: 23px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.material-box .info>p {
+    font-size: 16px;
+    padding-top: 10px;
+    text-align: justify;
+}
+
+.material-box .info>a {
+    transition: all 0.5s ease 0s;
+}
+
+.material-box .info>a:hover {
+    transition: all 0.5s ease 0s;
+}
+
+.team .thumbnail img {
+    width: 100%;
+}
+
+.services-list {
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.service-slider .item img {
+    width: 100%;
+}
+
+.other-service-box .other-service-icon {
+    display: inline-block;
+    float: left;
+    height: 35px;
+    line-height: 35px;
+    margin-right: 10px;
+    position: relative;
+    text-align: center;
+    top: 5px;
+    width: 35px;
+}
+
+.other-service-box .other-service-info {
+    padding-left: 50px;
+}
+
+.premium-service-img {
+    max-width: 100%;
+}
+
+
+/******************************
+  10. Pricing Table
+******************************/
+
+.pricing-table-list>.container>.row {
+    margin-bottom: 50px;
+}
+
+.pricing-table,
+.pricing-table-primary {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.pricing-table-primary {
+    margin-top: -30px;
+    position: relative;
+    z-index: 1;
+}
+
+.pricing-table .title,
+.pricing-table-primary .title {
+    float: left;
+    text-align: center;
+    text-transform: uppercase;
+    width: 100%;
+}
+
+.pricing-table .title {
+    font-size: 18px;
+    font-weight: normal;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+.pricing-table-primary .title {
+    font-size: 24px;
+    font-weight: 500;
+    padding-top: 18px;
+    padding-bottom: 18px;
+}
+
+.pricing-table .price,
+.pricing-table-primary .price {
+    float: left;
+    text-align: center;
+    text-transform: uppercase;
+    width: 100%;
+}
+
+.pricing-table .price {
+    font-size: 40px;
+    font-weight: normal;
+    padding: 30px 20px;
+}
+
+.pricing-table-primary .price {
+    font-size: 46px;
+    font-weight: 500;
+    padding: 40px 20px;
+}
+
+.pricing-table .price small,
+.pricing-table-primary .price small {
+    display: block;
+    font-style: normal;
+}
+
+.pricing-table .price small {
+    font-size: 14px;
+    font-weight: normal;
+    margin-top: 18px;
+}
+
+.pricing-table-primary .price small {
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 20px;
+}
+
+.pricing-table .pricing-table-content,
+.pricing-table-primary .pricing-table-content {
+    float: left;
+    text-align: center;
+    width: 100%;
+}
+
+.pricing-table .pricing-table-content ul,
+.pricing-table-primary .pricing-table-content ul {
+    margin: 0;
+    padding: 0;
+}
+
+.pricing-table .pricing-table-content li,
+.pricing-table-primary .pricing-table-content li {
+    line-height: 1;
+    list-style-type: none;
+    margin: 0;
+    text-transform: uppercase;
+    padding: 20px 0;
+}
+
+.pricing-table .pricing-table-content li {
+    font-weight: normal;
+}
+
+.pricing-table-primary .pricing-table-content li {
+    font-weight: 500;
+}
+
+.pricing-table .order-now,
+.pricing-table-primary .order-now {
+    float: left;
+    padding: 0;
+    text-align: center;
+    width: 100%;
+}
+
+.pricing-table .order-now a,
+.pricing-table .order-now button,
+.pricing-table-primary .order-now a,
+.pricing-table-primary .order-now button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 50%;
+}
+
+.pricing-table button,
+.pricing-table-primary button {
+    display: block;
+    text-transform: uppercase;
+    margin: 30px auto 20px;
+    padding: 13px 35px 13px 35px;
+}
+
+
+/******************************
+  11. Blog
+******************************/
+
+.blog {
+    margin-bottom: 50px;
+}
+
+.blog-post {
+    margin-top: 30px;
+}
+
+.blog-post h3 a {
+    text-decoration: none;
+}
+
+.blog-info span {
+    margin-right: 10px;
+}
+
+.blog-info span i {
+    margin-right: 5px;
+}
+
+.blog-header-img {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.blog-header-img img {
+    width: 100%;
+}
+
+.blog-author {
+    max-width: 100px;
+    max-height: 100px;
+    margin-right: 20px;
+}
+
+.blog-sidebar .offers-banner {
+    width: 100%;
+}
+
+.blog-footer {
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.blog-tags a,
+.blog-footer a {
+    text-decoration: none;
+}
+
+.blog-sidebar>div,
+.blog-sidebar>section {
+    margin-top: 40px;
+}
+
+.blog-sidebar>div h4,
+.blog-sidebar>section h4 {
+    text-transform: uppercase;
+}
+
+blockquote {
+    font-style: italic;
+    font-weight: 700;
+    line-height: 1.5em;
+    padding: 20px 20px;
+    position: relative;
+}
+
+.social-icons-comment {
+    display: inline;
+    margin-left: 10px;
+}
+
+.social-icons-comment li a {
+    font-size: 16px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.single-comment.reply {
+    margin: 20px 0 20px 20px;
+}
+
+.single-comment div img {
+    max-width: 50px;
+    max-height: 50px;
+    margin-right: 20px;
+}
+
+.single-comment small {
+    font-style: italic;
+}
+
+.lead {
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 1.4;
+}
+
+.strength {
+    padding: 15px 0;
+}
+
+.strength>div>div>div {
+    text-align: center;
+    margin: 15px 0;
+}
+
+.strength>div>div>div>div {
+    font-family: 'Oswald', sans-serif !important;
+    font-size: 50px;
+    font-weight: 600;
+}
+
+.strength>div>div>div>label {
+    font-family: 'Oswald', sans-serif !important;
+    font-size: 20px;
+    font-weight: 100;
+    text-transform: uppercase;
+}
+
+.box-socail-icon {
+    display: table;
+    height: 30px;
+    width: 30px;
+}
+
+.box-socail-icon span {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.search-field i {
+    left: 25px;
+    position: absolute;
+    top: 50px;
+}
+
+.search-field input {
+    text-indent: 20px;
+}
+
+.related-blog-posts img {
+    width: 100%;
+}
+
+
+/******************************
+  12. Portfolio
+******************************/
+
+.portfolio .filtr-container {
+    margin-bottom: 50px;
+}
+
+.portfolio .filtr-container .filtr-item {
+    padding: 1rem;
+}
+
+.portfolio .filtr-container .item-desc {
+    position: absolute;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 1rem;
+    z-index: 1;
+    bottom: 1rem;
+    left: 1rem;
+    right: 1rem;
+}
+
+.portfolio .simplefilter>li {
+    margin-right: 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.portfolio .simplefilter>li.active {
+    text-decoration: underline;
+}
+
+.offer-ribbon,
+.latest-ribbon,
+.sale-ribbon {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-image: none;
+    border-style: solid;
+    border-width: 35px;
+    height: 70px;
+    left: 100%;
+    margin: 10px 0px 0px -80px;
+    position: absolute;
+    top: 0;
+    width: 70px;
+    z-index: 2;
+}
+
+.offer-ribbon span,
+.latest-ribbon span,
+.sale-ribbon span {
+    font-size: 12px;
+    font-weight: 500;
+    left: 100%;
+    margin: -20px 0 0 -20px;
+    position: absolute;
+    text-align: center;
+    text-transform: uppercase;
+    transform: rotate(45deg);
+    width: 60px;
+}
+
+
+/******************************
+  13. Vehicle Details
+******************************/
+
+.vehicle-detail-slider {
+    max-height: 370px;
+    overflow: hidden;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.vehicle-detail-slider .item img {
+    width: 100%;
+}
+
+.vehicle-detail-slider .owl-controls {
+    position: absolute;
+    width: 100%;
+    bottom: 135px;
+}
+
+.vehicle-detail-slider .owl-controls .owl-buttons .owl-prev,
+.vehicle-detail-slider .owl-controls .owl-buttons .owl-next {
+    background: none;
+    font-size: 50px;
+    border: none;
+}
+
+.vehicle-detail-slider .owl-controls .owl-buttons .owl-prev {
+    float: left;
+}
+
+.vehicle-detail-slider .owl-controls .owl-buttons .owl-next {
+    float: right;
+}
+
+.vehicle-info {
+    margin-bottom: 50px;
+}
+
+.tags.price {
+    float: right;
+    font-size: 1.3em;
+    font-weight: 600;
+    height: 40px;
+    line-height: 40px;
+    margin: -35px 0 0;
+    padding: 0 10px;
+    position: relative;
+}
+
+.tags.price span {
+    border-bottom: 20px solid transparent;
+    border-top: 20px solid transparent;
+    display: block;
+    height: 0;
+    left: -15px;
+    position: absolute;
+    top: 0;
+    width: 0;
+}
+
+.list-inline>li {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.media:first-child,
+.media {
+    margin-top: 25px;
+}
+
+.pagination {
+    float: right;
+    font-weight: bold;
+}
+
+
+/******************************
+  14. Contact
+******************************/
+
+.contact {
+    margin-bottom: 50px;
+}
+
+.contact .container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.contact iframe {
+    border: 0;
+    width: 100%;
+    min-height: 400px;
+}
+
+.contact-row {
+    padding: 15px 0;
+}
+
+.contact-row h4 {
+    font-size: 18px;
+    font-weight: 200;
+}
+
+#contact-msg {
+    font-weight: bold;
+}
+
+.social-icons {
+    float: right;
+    margin-top: 15px;
+}
+
+.social-icons>ul {
+    float: right;
+}
+
+.social-icons>ul>li {
+    padding: 0px 0px 0px 0px;
+}
+
+
+/******************************
+  15. Footer
+******************************/
+
+.footer {
+    padding: 20px 0;
+}
+
+.footerlinks li {
+    padding: 5px 0;
+}
+
+.other-services {
+    margin-left: -10px;
+    margin-right: -10px;
+}
+
+.other-service {
+    margin-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.other-service img {
+    width: 100%;
+}
+
+.footer-bottom {
+    font-size: 12px;
+    margin-top: 15px;
+    padding: 15px 0 10px;
+}
+
+.social-icon-footer li {
+    margin-right: 5px;
+}
+
+#scroll-top {
+    display: none;
+    position: fixed;
+    bottom: 10px;
+    right: 25px;
+    width: 48px;
+    height: 48px;
+    background-image: url('../img/scroll-top.png');
+    background-repeat: no-repeat;
+    opacity: 0.4;
+    filter: alpha(opacity=40);
+    /* For IE8 and earlier */
+    cursor: pointer;
+}
+
+#scroll-top:hover {
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+    /* For IE8 and earlier */
+}
+
+
+/******************************
+  16. Media Queries
+******************************/
+
+@media (max-width: 1199px) {
+    .page-header .logo img {
+        max-width: 220px;
+    }
+    .inner-slider {
+        padding-top: 30px;
+    }
+}
+
+@media (max-width: 991px) {
+    .page-header .menu-tagline {
+        margin-top: 10px;
+    }
+    .slider-description {
+        width: 100%;
+        font-size: 14px;
+        font-weight: 200;
+        left: 0;
+        line-height: 1em;
+        padding: 15px;
+        position: absolute;
+        top: 30px;
+    }
+    .vehicle-detail-slider .owl-controls {
+        bottom: 140px;
+    }
+    .main-enquiry {
+        width: 100%;
+        position: relative;
+        float: inherit;
+        right: 0;
+        top: 0;
+    }
+    .social-icons {
+        float: left;
+    }
+    .social-icons ul {
+        float: left;
+    }
+    .search-field i {
+        top: 10px;
+    }
+}
+
+@media (max-width: 767px) {
+    .page-header nav .navbar-toggle {
+        border: none;
+    }
+    .inner-slider {
+        padding-top: 50px;
+    }
+    .contact-button {
+        margin-top: 10px;
+    }
+    .footer-bottom p {
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .inner-slider {
+        padding-top: 20px;
+    }
+    .slider-description {
+        top: -25px;
+        font-size: 14px;
+        font-weight: lighter;
+    }
+    .slider-description h1 {
+        font-size: 16px;
+    }
+    .vehicle-detail-slider .owl-controls {
+        bottom: 80px;
+    }
+    .vehicle-detail-slider .owl-controls .owl-buttons .owl-prev,
+    .vehicle-detail-slider .owl-controls .owl-buttons .owl-next {
+        font-size: 30px;
+    }
+}
