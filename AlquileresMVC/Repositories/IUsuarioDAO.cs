@@ -1,3 +1,5 @@
+using AlquileresMVC.Models;
+
 namespace AlquileresMVC.Repositories
 {
     public interface IUsuarioDAO {

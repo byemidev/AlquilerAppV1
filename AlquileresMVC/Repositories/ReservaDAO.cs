@@ -1,3 +1,6 @@
+using AlquileresMVC.Models;
+using AlquileresMVC.Data;
+
 namespace AlquileresMVC.Repositories {
 
     public class ReservaDAO : IReservaDAO {
@@ -39,19 +42,19 @@ namespace AlquileresMVC.Repositories {
 
         public Reserva GetReserva(int id)
         {
-            return _context.Rerserva.Find(id);
+            return _context.Reserva.Find(id);
         }
 
         public List<Extra> GetExtras(int id){
-            return _context.Extra.Where(e => e.ReservaId == id).ToList();
+            return _context.Extra.Where(e => e.reservaId == id).ToList();
         }
 
-        public List<Vehiculo> GetVehiculos(){
-            return _context.Extra.Where(e => e.ReservaId == id).ToList();
+        public List<Vehiculo> GetVehiculos(int id){
+            return _context.Vehiculo.Where(e => e.reservaId == id).ToList();
         }
         
-        public List<Vehiculo> GetMetodos(){
-            return _context.Extra.Where(e => e.ReservaId == id).ToList();
+        public List<MetodoPago> GetMetodos(int id){
+            return _context.MetodoPago.Where(e => e.reservaId == id).ToList();
         }
 
     }

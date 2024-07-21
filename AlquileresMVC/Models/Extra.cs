@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 namespace AlquileresMVC.Models {
     public class Extra {
         [Key]
-        public int id { get; set;}
+        public int Id { get; set;}
         public int reservaId { get; set;}
         public string descripcion { get; set; }
 
