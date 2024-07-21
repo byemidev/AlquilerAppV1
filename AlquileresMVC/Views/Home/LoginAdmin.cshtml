@@ -38,9 +38,12 @@
     </div>
     <!-- PAGE HEADER END -->
 
+
+    <!-- TODO: Agregar Identity para validar usuario -->
+
     <div class="login">
         <h1>Iniciar Sesión</h1>
-        <form method="post">
+        <form method="post" asp-controller="Home" asp-action="AdminPanel">
             <input type="text" name="u" placeholder="Usuario" required="required" />
             <input type="password" name="p" placeholder="Contraseña" required="required" />
             <button type="submit" class="btn btn-primary btn-block btn-large">Entrar</button>
