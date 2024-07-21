@@ -1,3 +1,5 @@
+using AlquileresMVC.Models;
+
 namespace AlquileresMVC.Repositories {
     
     public interface IReservaDAO
@@ -6,7 +8,7 @@ namespace AlquileresMVC.Repositories {
 
         //void InsertUser(Usuario usuario); // ? 
 
-        void InsertExtra(Extras extras);
+        void InsertExtra(Extra extra);
 
         void InsertMetodoPago(MetodoPago metodo);
 

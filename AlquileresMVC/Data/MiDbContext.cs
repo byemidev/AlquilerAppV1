@@ -9,8 +9,9 @@ namespace AlquileresMVC.Data {
 
         public DbSet<Reserva> Reserva { get; set; }
         public DbSet<Usuario> Usuario {get; set;}
-        public Dbset<MetodoPago> Metodo { get; set;}
-        public Dbset<Vehiculo> Vehiculo {get; set;}
+        public DbSet<MetodoPago> Metodo { get; set;}
+        public DbSet<Vehiculo> Vehiculo {get; set;}
         public DbSet<Extra> Extra { get; set; }
+        public DbSet<MetodoPago> MetodoPago { get; set; }
     }
 }
