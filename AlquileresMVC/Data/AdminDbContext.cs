@@ -19,7 +19,7 @@ namespace AlquileresMVC.Data
         public DbSet<Reserva> Reservas { get; set; }
         public DbSet<ReservaExtras> ReservaExtras { get; set; }
         public DbSet<Extra> Extras { get; set; }
-        public DbSet<MetodoPago> FormasDePago { get; set; }
+        public DbSet<MetodoPago> MetodoPago { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Vehiculo> Vehiculos { get; set; }
 
@@ -37,31 +37,35 @@ namespace AlquileresMVC.Data
             modelBuilder.Entity<Reserva>()
                 .HasOne(r => r.usuario)
                 .WithMany()
-                .HasForeignKey(r => r.FKusuarioId);
+                .HasForeignKey(r => r.FKusuarioId)
+                .OnDelete(DeleteBehavior.NoAction);
 
             modelBuilder.Entity<Reserva>()
                 .HasOne(r => r.vehiculo)
                 .WithMany()
-                .HasForeignKey(r => r.FKvehiculoId);
+                .HasForeignKey(r => r.FKvehiculoId)
+                .OnDelete(DeleteBehavior.NoAction);
 
             modelBuilder.Entity<Reserva>()
                 .HasMany(r => r.ExtrasReserva)
                 .WithOne(re => re.reserva)
-                .HasForeignKey(re => re.FKreservaId);
+                .HasForeignKey(re => re.FKreservaId)
+                .OnDelete(DeleteBehavior.NoAction);
 
             // Relacion de extras con la tabla intermedia
             modelBuilder.Entity<Extra>()
                 .HasMany(e => e.OrderExtras)
                 .WithOne(re => re.extra)
-                .HasForeignKey(re => re.FKextraId);
-
+                .HasForeignKey(re => re.FKextraId)
+                .OnDelete(DeleteBehavior.NoAction);
+            
             // Relacion de forma de pago con reserva
-            modelBuilder.Entity<MetodoPago>()
-                .HasOne<Reserva>()
+            modelBuilder.Entity<Reserva>()
+                .HasOne<MetodoPago>()
                 .WithMany()
-                .HasForeignKey(f => f.reservaId);
-
+                .HasForeignKey(f => f.FKmetodoId)
+                .OnDelete(DeleteBehavior.NoAction);
+                
         }
-
     }
 }

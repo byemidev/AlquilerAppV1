@@ -41,7 +41,7 @@ namespace AlquileresMVC.Repositories {
         }
 
         public void InsertMetodoPago (MetodoPago metodo){
-            _context.FormasDePago.Add(metodo);
+            _context.MetodoPago.Add(metodo);
             _context.SaveChanges();
         }
         

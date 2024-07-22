@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace AlquileresMVC.Migrations
 {
     /// <inheritdoc />
-    public partial class test1 : Migration
+    public partial class test : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -15,7 +15,7 @@ namespace AlquileresMVC.Migrations
                 name: "Extras",
                 columns: table => new
                 {
-                    ExtraId = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Nombre = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Descripcion = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -23,26 +23,40 @@ namespace AlquileresMVC.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Extras", x => x.ExtraId);
+                    table.PrimaryKey("PK_Extras", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "MetodoPago",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Nombre = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_MetodoPago", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Usuarios",
                 columns: table => new
                 {
-                    UsuarioId = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Nombre = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Apellido1 = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Apellido2 = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Telefono = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DNI = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    carnetFechaExpedicion = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     FechaNacimiento = table.Column<DateOnly>(type: "date", nullable: false),
                     Correo = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Usuarios", x => x.UsuarioId);
+                    table.PrimaryKey("PK_Usuarios", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -65,101 +79,92 @@ namespace AlquileresMVC.Migrations
                 name: "Reservas",
                 columns: table => new
                 {
-                    ReservaId = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     FechaEntrada = table.Column<DateOnly>(type: "date", nullable: false),
                     FechaSalida = table.Column<DateOnly>(type: "date", nullable: false),
-                    FKIdUsuario = table.Column<int>(type: "int", nullable: false),
-                    FKIdVehiculo = table.Column<int>(type: "int", nullable: false)
+                    FKusuarioId = table.Column<int>(type: "int", nullable: false),
+                    FKvehiculoId = table.Column<int>(type: "int", nullable: false),
+                    FKmetodoId = table.Column<int>(type: "int", nullable: false),
+                    metodoId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Reservas", x => x.ReservaId);
+                    table.PrimaryKey("PK_Reservas", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Reservas_Usuarios_FKIdUsuario",
-                        column: x => x.FKIdUsuario,
-                        principalTable: "Usuarios",
-                        principalColumn: "UsuarioId",
-                        onDelete: ReferentialAction.Cascade);
+                        name: "FK_Reservas_MetodoPago_FKmetodoId",
+                        column: x => x.FKmetodoId,
+                        principalTable: "MetodoPago",
+                        principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_Reservas_Vehiculos_FKIdVehiculo",
-                        column: x => x.FKIdVehiculo,
-                        principalTable: "Vehiculos",
+                        name: "FK_Reservas_MetodoPago_metodoId",
+                        column: x => x.metodoId,
+                        principalTable: "MetodoPago",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "FormasDePago",
-                columns: table => new
-                {
-                    FormaDePagoId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    reservaId = table.Column<int>(type: "int", nullable: false),
-                    Nombre = table.Column<string>(type: "nvarchar(max)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_FormasDePago", x => x.FormaDePagoId);
                     table.ForeignKey(
-                        name: "FK_FormasDePago_Reservas_reservaId",
-                        column: x => x.reservaId,
-                        principalTable: "Reservas",
-                        principalColumn: "ReservaId",
-                        onDelete: ReferentialAction.Cascade);
+                        name: "FK_Reservas_Usuarios_FKusuarioId",
+                        column: x => x.FKusuarioId,
+                        principalTable: "Usuarios",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Reservas_Vehiculos_FKvehiculoId",
+                        column: x => x.FKvehiculoId,
+                        principalTable: "Vehiculos",
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
                 name: "ReservaExtras",
                 columns: table => new
                 {
-                    FKIdReserva = table.Column<int>(type: "int", nullable: false),
-                    FKIdExtra = table.Column<int>(type: "int", nullable: false)
+                    FKreservaId = table.Column<int>(type: "int", nullable: false),
+                    FKextraId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ReservaExtras", x => new { x.FKIdReserva, x.FKIdExtra });
+                    table.PrimaryKey("PK_ReservaExtras", x => new { x.FKreservaId, x.FKextraId });
                     table.ForeignKey(
-                        name: "FK_ReservaExtras_Extras_FKIdExtra",
-                        column: x => x.FKIdExtra,
+                        name: "FK_ReservaExtras_Extras_FKextraId",
+                        column: x => x.FKextraId,
                         principalTable: "Extras",
-                        principalColumn: "ExtraId",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_ReservaExtras_Reservas_FKIdReserva",
-                        column: x => x.FKIdReserva,
+                        name: "FK_ReservaExtras_Reservas_FKreservaId",
+                        column: x => x.FKreservaId,
                         principalTable: "Reservas",
-                        principalColumn: "ReservaId",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_FormasDePago_reservaId",
-                table: "FormasDePago",
-                column: "reservaId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_ReservaExtras_FKIdExtra",
+                name: "IX_ReservaExtras_FKextraId",
                 table: "ReservaExtras",
-                column: "FKIdExtra");
+                column: "FKextraId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Reservas_FKIdUsuario",
+                name: "IX_Reservas_FKmetodoId",
                 table: "Reservas",
-                column: "FKIdUsuario");
+                column: "FKmetodoId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Reservas_FKIdVehiculo",
+                name: "IX_Reservas_FKusuarioId",
                 table: "Reservas",
-                column: "FKIdVehiculo");
+                column: "FKusuarioId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Reservas_FKvehiculoId",
+                table: "Reservas",
+                column: "FKvehiculoId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Reservas_metodoId",
+                table: "Reservas",
+                column: "metodoId");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "FormasDePago");
-
             migrationBuilder.DropTable(
                 name: "ReservaExtras");
 
@@ -168,6 +173,9 @@ namespace AlquileresMVC.Migrations
 
             migrationBuilder.DropTable(
                 name: "Reservas");
+
+            migrationBuilder.DropTable(
+                name: "MetodoPago");
 
             migrationBuilder.DropTable(
                 name: "Usuarios");

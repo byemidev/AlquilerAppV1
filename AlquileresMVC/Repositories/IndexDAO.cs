@@ -17,7 +17,7 @@ namespace AlquileresMVC.Repositories
 
         public List<MetodoPago> GetMetodos()
         {
-            return _context.FormasDePago.ToList();
+            return _context.MetodoPago.ToList();
         }
 
         public List<Vehiculo> GetVehiculos()

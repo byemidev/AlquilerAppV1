@@ -1,4 +1,5 @@
-﻿using Microsoft.Build.ObjectModelRemoting;
+﻿
+using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -22,7 +23,6 @@ namespace AlquileresMVC.Models.Admin
         public int FKvehiculoId { get; set; }
         [ForeignKey(nameof(FKvehiculoId))]
         public Vehiculo vehiculo { get; set; }
-
         public int FKmetodoId { get; set; }
 
         [ForeignKey(nameof(FKmetodoId))]
