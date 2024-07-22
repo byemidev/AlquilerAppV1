@@ -15,6 +15,7 @@ builder.Services.AddDbContext<AdminDbContext>(options =>
 //buiding services for can be using DAO in controllers
 builder.Services.AddTransient<IUsuarioDAO, UsuarioDAO>();
 builder.Services.AddTransient<IReservaDAO, ReservaDAO>();
+builder.Services.AddTransient<IIndexDAO, IndexDAO>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
