@@ -2,10 +2,10 @@
 
 namespace AlquileresMVC.Models.Admin
 {
-    public class FormaDePago
+    public class MetodoPago
     {
         [Key]
-        public int FormaDePagoId { get; set; }
+        public int Id { get; set; }
         public int reservaId { get; set; }
         public string Nombre { get; set; } = string.Empty;
     }

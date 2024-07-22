@@ -5,12 +5,12 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 
-//building MiDbContext 
-builder.Services.AddDbContext<MiDbContext>(
-    options => {
-        options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
-    }
-);
+//building DbContext
+//Le paso la conexi�n al contexto de admin
+builder.Services.AddDbContext<AdminDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString
+     ("DefaultConnection")));
+
 
 //buiding services for can be using DAO in controllers
 builder.Services.AddTransient<IUsuarioDAO, UsuarioDAO>();
@@ -19,15 +19,7 @@ builder.Services.AddTransient<IReservaDAO, ReservaDAO>();
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-
-// Le paso la conexi�n al contexto de admin
-builder.Services.AddDbContext<AdminDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString
-     ("DefaultConnection")));
-
 var app = builder.Build();
-
-
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
