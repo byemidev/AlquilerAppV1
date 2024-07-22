@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AlquileresMVC.Migrations
 {
     [DbContext(typeof(AdminDbContext))]
-    [Migration("20240720220819_test1")]
-    partial class test1
+    [Migration("20240722174255_test")]
+    partial class test
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,13 +25,13 @@ namespace AlquileresMVC.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("AlquileresMVC.Models.Admin.Extras", b =>
+            modelBuilder.Entity("AlquileresMVC.Models.Admin.Extra", b =>
                 {
-                    b.Property<int>("ExtraId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ExtraId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Descripcion")
                         .IsRequired()
@@ -44,45 +44,43 @@ namespace AlquileresMVC.Migrations
                     b.Property<int>("Precio")
                         .HasColumnType("int");
 
-                    b.HasKey("ExtraId");
+                    b.HasKey("Id");
 
                     b.ToTable("Extras");
                 });
 
-            modelBuilder.Entity("AlquileresMVC.Models.Admin.FormaDePago", b =>
+            modelBuilder.Entity("AlquileresMVC.Models.Admin.MetodoPago", b =>
                 {
-                    b.Property<int>("FormaDePagoId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("FormaDePagoId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Nombre")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("reservaId")
-                        .HasColumnType("int");
+                    b.HasKey("Id");
 
-                    b.HasKey("FormaDePagoId");
-
-                    b.HasIndex("reservaId");
-
-                    b.ToTable("FormasDePago");
+                    b.ToTable("MetodoPago");
                 });
 
             modelBuilder.Entity("AlquileresMVC.Models.Admin.Reserva", b =>
                 {
-                    b.Property<int>("ReservaId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ReservaId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("FKIdUsuario")
+                    b.Property<int>("FKmetodoId")
                         .HasColumnType("int");
 
-                    b.Property<int>("FKIdVehiculo")
+                    b.Property<int>("FKusuarioId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("FKvehiculoId")
                         .HasColumnType("int");
 
                     b.Property<DateOnly>("FechaEntrada")
@@ -91,37 +89,44 @@ namespace AlquileresMVC.Migrations
                     b.Property<DateOnly>("FechaSalida")
                         .HasColumnType("date");
 
-                    b.HasKey("ReservaId");
+                    b.Property<int>("metodoId")
+                        .HasColumnType("int");
 
-                    b.HasIndex("FKIdUsuario");
+                    b.HasKey("Id");
 
-                    b.HasIndex("FKIdVehiculo");
+                    b.HasIndex("FKmetodoId");
+
+                    b.HasIndex("FKusuarioId");
+
+                    b.HasIndex("FKvehiculoId");
+
+                    b.HasIndex("metodoId");
 
                     b.ToTable("Reservas");
                 });
 
             modelBuilder.Entity("AlquileresMVC.Models.Admin.ReservaExtras", b =>
                 {
-                    b.Property<int>("FKIdReserva")
+                    b.Property<int>("FKreservaId")
                         .HasColumnType("int");
 
-                    b.Property<int>("FKIdExtra")
+                    b.Property<int>("FKextraId")
                         .HasColumnType("int");
 
-                    b.HasKey("FKIdReserva", "FKIdExtra");
+                    b.HasKey("FKreservaId", "FKextraId");
 
-                    b.HasIndex("FKIdExtra");
+                    b.HasIndex("FKextraId");
 
                     b.ToTable("ReservaExtras");
                 });
 
             modelBuilder.Entity("AlquileresMVC.Models.Admin.Usuario", b =>
                 {
-                    b.Property<int>("UsuarioId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UsuarioId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Apellido1")
                         .IsRequired()
@@ -150,7 +155,11 @@ namespace AlquileresMVC.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("UsuarioId");
+                    b.Property<string>("carnetFechaExpedicion")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
 
                     b.ToTable("Usuarios");
                 });
@@ -183,28 +192,33 @@ namespace AlquileresMVC.Migrations
                     b.ToTable("Vehiculos");
                 });
 
-            modelBuilder.Entity("AlquileresMVC.Models.Admin.FormaDePago", b =>
-                {
-                    b.HasOne("AlquileresMVC.Models.Admin.Reserva", null)
-                        .WithMany()
-                        .HasForeignKey("reservaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("AlquileresMVC.Models.Admin.Reserva", b =>
                 {
+                    b.HasOne("AlquileresMVC.Models.Admin.MetodoPago", null)
+                        .WithMany()
+                        .HasForeignKey("FKmetodoId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
                     b.HasOne("AlquileresMVC.Models.Admin.Usuario", "usuario")
                         .WithMany()
-                        .HasForeignKey("FKIdUsuario")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasForeignKey("FKusuarioId")
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("AlquileresMVC.Models.Admin.Vehiculo", "vehiculo")
                         .WithMany()
-                        .HasForeignKey("FKIdVehiculo")
+                        .HasForeignKey("FKvehiculoId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("AlquileresMVC.Models.Admin.MetodoPago", "metodo")
+                        .WithMany()
+                        .HasForeignKey("metodoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("metodo");
 
                     b.Navigation("usuario");
 
@@ -213,16 +227,16 @@ namespace AlquileresMVC.Migrations
 
             modelBuilder.Entity("AlquileresMVC.Models.Admin.ReservaExtras", b =>
                 {
-                    b.HasOne("AlquileresMVC.Models.Admin.Extras", "extra")
+                    b.HasOne("AlquileresMVC.Models.Admin.Extra", "extra")
                         .WithMany("OrderExtras")
-                        .HasForeignKey("FKIdExtra")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasForeignKey("FKextraId")
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("AlquileresMVC.Models.Admin.Reserva", "reserva")
                         .WithMany("ExtrasReserva")
-                        .HasForeignKey("FKIdReserva")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasForeignKey("FKreservaId")
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("extra");
@@ -230,7 +244,7 @@ namespace AlquileresMVC.Migrations
                     b.Navigation("reserva");
                 });
 
-            modelBuilder.Entity("AlquileresMVC.Models.Admin.Extras", b =>
+            modelBuilder.Entity("AlquileresMVC.Models.Admin.Extra", b =>
                 {
                     b.Navigation("OrderExtras");
                 });
