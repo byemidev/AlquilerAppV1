@@ -1,29 +1,29 @@
 using AlquileresMVC.Data;
-using AlquileresMVC.Models;
+using AlquileresMVC.Models.Admin;
 
 namespace AlquileresMVC.Repositories
 {
     public class UsuarioDAO : IUsuarioDAO
     {
         
-        public readonly MiDbContext _context;
+        public readonly AdminDbContext _context;
 
-        public UsuarioDAO (MiDbContext contexto){
+        public UsuarioDAO (AdminDbContext contexto){
             _context = contexto;
         }
 
         public void InsertUsuario(Usuario usuario){
-            _context.Usuario.Add(usuario);
+            _context.Usuarios.Add(usuario);
             _context.SaveChanges();
         }
 
         public void InsertReserva(Reserva reserva){
-            _context.Reserva.Add(reserva);
+            _context.Reservas.Add(reserva);
             _context.SaveChanges();
         }
 
         public  List<Reserva> GetReservas(int id) { 
-            return _context.Reserva.Where(e => e.Id == id).ToList();
+            return _context.Reservas.Where(e => e.Id == id).ToList();
         }
     }
 }

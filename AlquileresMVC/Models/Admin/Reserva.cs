@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.Build.ObjectModelRemoting;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AlquileresMVC.Models.Admin
@@ -7,23 +8,28 @@ namespace AlquileresMVC.Models.Admin
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int ReservaId { get; set; }
+        public int Id { get; set; }
         public DateOnly FechaEntrada { get; set; }
 
         public DateOnly FechaSalida { get; set; }
-
-        [ForeignKey("usuario")]
-        public int FKIdUsuario { get; set; }
+        
+        public int FKusuarioId { get; set; }
        
+        [ForeignKey(nameof(FKusuarioId))]
         public Usuario usuario { get; set; }
 
-        [ForeignKey("vehiculo")]
-        public int FKIdVehiculo { get; set; }
-
+        
+        public int FKvehiculoId { get; set; }
+        [ForeignKey(nameof(FKvehiculoId))]
         public Vehiculo vehiculo { get; set; }
 
-        public virtual List<ReservaExtras> ExtrasReserva { get; set; } = new List<ReservaExtras>();
+        public int FKmetodoId { get; set; }
 
+        [ForeignKey(nameof(FKmetodoId))]
+        public MetodoPago metodo { get; set; }
+
+
+        public virtual List<ReservaExtras> ExtrasReserva { get; set; } = new List<ReservaExtras>();
 
     }
 }

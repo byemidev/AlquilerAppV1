@@ -18,8 +18,8 @@ namespace AlquileresMVC.Data
 
         public DbSet<Reserva> Reservas { get; set; }
         public DbSet<ReservaExtras> ReservaExtras { get; set; }
-        public DbSet<Extras> Extras { get; set; }
-        public DbSet<FormaDePago> FormasDePago { get; set; }
+        public DbSet<Extra> Extras { get; set; }
+        public DbSet<MetodoPago> FormasDePago { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Vehiculo> Vehiculos { get; set; }
 
@@ -31,32 +31,32 @@ namespace AlquileresMVC.Data
         {
             // Para que la tabla intermedia tenga doble primary key
             modelBuilder.Entity<ReservaExtras>()
-                .HasKey(re => new { re.FKIdReserva, re.FKIdExtra });
+                .HasKey(re => new { re.FKreservaId, re.FKextraId });
 
             // Relaciones de reserva
             modelBuilder.Entity<Reserva>()
                 .HasOne(r => r.usuario)
                 .WithMany()
-                .HasForeignKey(r => r.FKIdUsuario);
+                .HasForeignKey(r => r.FKusuarioId);
 
             modelBuilder.Entity<Reserva>()
                 .HasOne(r => r.vehiculo)
                 .WithMany()
-                .HasForeignKey(r => r.FKIdVehiculo);
+                .HasForeignKey(r => r.FKvehiculoId);
 
             modelBuilder.Entity<Reserva>()
                 .HasMany(r => r.ExtrasReserva)
                 .WithOne(re => re.reserva)
-                .HasForeignKey(re => re.FKIdReserva);
+                .HasForeignKey(re => re.FKreservaId);
 
             // Relacion de extras con la tabla intermedia
-            modelBuilder.Entity<Extras>()
+            modelBuilder.Entity<Extra>()
                 .HasMany(e => e.OrderExtras)
                 .WithOne(re => re.extra)
-                .HasForeignKey(re => re.FKIdExtra);
+                .HasForeignKey(re => re.FKextraId);
 
             // Relacion de forma de pago con reserva
-            modelBuilder.Entity<FormaDePago>()
+            modelBuilder.Entity<MetodoPago>()
                 .HasOne<Reserva>()
                 .WithMany()
                 .HasForeignKey(f => f.reservaId);

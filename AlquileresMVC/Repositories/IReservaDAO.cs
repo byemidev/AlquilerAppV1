@@ -1,4 +1,4 @@
-using AlquileresMVC.Models;
+using AlquileresMVC.Models.Admin;
 
 namespace AlquileresMVC.Repositories {
     
@@ -7,6 +7,7 @@ namespace AlquileresMVC.Repositories {
         void InsertReserva(Reserva reserva);
 
         //void InsertUser(Usuario usuario); // ? 
+        void InsertReservasExtras(ReservaExtras reservaExtras);
 
         void InsertExtra(Extra extra);
 

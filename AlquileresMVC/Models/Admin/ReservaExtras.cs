@@ -4,12 +4,12 @@ namespace AlquileresMVC.Models.Admin
 {
     public class ReservaExtras
     {
-        [ForeignKey("reserva")]
-        public int FKIdReserva { get; set; }
+        public int FKreservaId { get; set; }
+        [ForeignKey(nameof(FKreservaId))]
         public Reserva reserva { get; set; }
 
-        [ForeignKey("extra")]
-        public int FKIdExtra { get; set; }
-        public Extras extra { get; set; }
+        public int FKextraId { get; set; }
+        [ForeignKey(nameof(FKextraId))]
+        public Extra extra { get; set; }
     }
 }
