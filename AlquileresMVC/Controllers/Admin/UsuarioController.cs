@@ -40,7 +40,7 @@ namespace AlquileresMVC.Controllers.Admin
             }
 
             var usuario = await _context.Usuarios
-                .FirstOrDefaultAsync(m => m.UsuarioId == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (usuario == null)
             {
                 return NotFound();
@@ -94,7 +94,7 @@ namespace AlquileresMVC.Controllers.Admin
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("UsuarioId,Nombre,Apellido1,Apellido2,Telefono,DNI,FechaNacimiento,Correo")] Usuario usuario)
         {
-            if (id != usuario.UsuarioId)
+            if (id != usuario.Id)
             {
                 return NotFound();
             }
@@ -108,7 +108,7 @@ namespace AlquileresMVC.Controllers.Admin
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!UsuarioExists(usuario.UsuarioId))
+                    if (!UsuarioExists(usuario.Id))
                     {
                         return NotFound();
                     }
@@ -131,7 +131,7 @@ namespace AlquileresMVC.Controllers.Admin
             }
 
             var usuario = await _context.Usuarios
-                .FirstOrDefaultAsync(m => m.UsuarioId == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (usuario == null)
             {
                 return NotFound();
@@ -157,7 +157,7 @@ namespace AlquileresMVC.Controllers.Admin
 
         private bool UsuarioExists(int id)
         {
-            return _context.Usuarios.Any(e => e.UsuarioId == id);
+            return _context.Usuarios.Any(e => e.Id == id);
         }
     }
 }

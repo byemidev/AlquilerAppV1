@@ -7,5 +7,8 @@ namespace AlquileresMVC.Repositories
 
         List<Vehiculo> GetVehiculos();
         List<MetodoPago> GetMetodos();
+
+        List<Extra> GetExtras();
+        
     }
 }
