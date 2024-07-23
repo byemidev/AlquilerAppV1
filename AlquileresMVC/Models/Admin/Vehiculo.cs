@@ -11,6 +11,8 @@ namespace AlquileresMVC.Models.Admin
         public string Modelo { get; set; } = string.Empty;
         public string Marca { get; set; } = string.Empty;
         public string Descripcion { get; set; } = string.Empty;
+
+        public string imgURL { get; set; } = string.Empty;
         public int precioDia { get; set; }
     }
 }
