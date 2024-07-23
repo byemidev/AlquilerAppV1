@@ -5,44 +5,42 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AlquileresMVC.Controllers.Admin.CRUD
 {
-    public class ExtraController : Controller
+    public class VehiculoController : Controller
     {
-
-
         private readonly AdminDbContext _context;
 
-        public ExtraController(AdminDbContext context)
+        public VehiculoController(AdminDbContext context)
         {
             _context = context;
         }
 
-        // GET: Extra
+        // GET: Vehiculo
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Extras.ToListAsync());
+            return View(await _context.Vehiculos.ToListAsync());
         }
 
-        // GET: Extra/Create
+        // GET: Vehiculo/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Extra/Create
+        // POST: Vehiculo/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Extra extra)
+        public async Task<IActionResult> Create(Vehiculo vehiculo)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(extra);
+                _context.Add(vehiculo);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(extra);
+            return View(vehiculo);
         }
 
-        // GET: Extra/Edit/5
+        // GET: Vehiculo/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -50,20 +48,20 @@ namespace AlquileresMVC.Controllers.Admin.CRUD
                 return NotFound();
             }
 
-            var extra = await _context.Extras.FindAsync(id);
-            if (extra == null)
+            var vehiculo = await _context.Vehiculos.FindAsync(id);
+            if (vehiculo == null)
             {
                 return NotFound();
             }
-            return View(extra);
+            return View(vehiculo);
         }
 
-        // POST: Extra/Edit/5
+        // POST: Vehiculo/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, Extra extra)
+        public async Task<IActionResult> Edit(int id, Vehiculo vehiculo)
         {
-            if (id != extra.Id)
+            if (id != vehiculo.Id)
             {
                 return NotFound();
             }
@@ -72,12 +70,12 @@ namespace AlquileresMVC.Controllers.Admin.CRUD
             {
                 try
                 {
-                    _context.Update(extra);
+                    _context.Update(vehiculo);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ExtraExists(extra.Id))
+                    if (!VehiculoExists(vehiculo.Id))
                     {
                         return NotFound();
                     }
@@ -88,10 +86,10 @@ namespace AlquileresMVC.Controllers.Admin.CRUD
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(extra);
+            return View(vehiculo);
         }
 
-        // GET: Extra/Delete/5
+        // GET: Vehiculo/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -99,34 +97,29 @@ namespace AlquileresMVC.Controllers.Admin.CRUD
                 return NotFound();
             }
 
-            var extra = await _context.Extras
+            var vehiculo = await _context.Vehiculos
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (extra == null)
+            if (vehiculo == null)
             {
                 return NotFound();
             }
 
-            return View(extra);
+            return View(vehiculo);
         }
 
-        // POST: Extra/Delete/5
-
-        
+        // POST: Vehiculo/Delete/5
         [HttpPost]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var extra = await _context.Extras.FindAsync(id);
-            _context.Extras.Remove(extra);
+            var vehiculo = await _context.Vehiculos.FindAsync(id);
+            _context.Vehiculos.Remove(vehiculo);
             await _context.SaveChangesAsync();
-            return RedirectToAction("Index", "Extra");
+            return RedirectToAction("Index", "Vehiculo");
         }
 
-        private bool ExtraExists(int id)
+        private bool VehiculoExists(int id)
         {
-            return _context.Extras.Any(e => e.Id == id);
+            return _context.Vehiculos.Any(e => e.Id == id);
         }
-
-
-
     }
 }

@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using AlquileresMVC.Data;
+﻿using AlquileresMVC.Data;
 using AlquileresMVC.Models.Admin;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
-namespace AlquileresMVC.Controllers.Admin
+namespace AlquileresMVC.Controllers.Admin.CRUD
 {
     public class UsuarioController : Controller
     {
@@ -19,48 +14,22 @@ namespace AlquileresMVC.Controllers.Admin
             _context = context;
         }
 
-
-        public IActionResult Selector ()
-        {
-            return View();
-        }
-
-        // GET: Usuario
+        // GET: Extra
         public async Task<IActionResult> Index()
         {
             return View(await _context.Usuarios.ToListAsync());
         }
 
-        // GET: Usuario/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var usuario = await _context.Usuarios
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (usuario == null)
-            {
-                return NotFound();
-            }
-
-            return View(usuario);
-        }
-
-        // GET: Usuario/Create
+        // GET: Extra/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Usuario/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: Extra/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("UsuarioId,Nombre,Apellido1,Apellido2,Telefono,DNI,FechaNacimiento,Correo")] Usuario usuario)
+        public async Task<IActionResult> Create(Usuario usuario)
         {
             if (ModelState.IsValid)
             {
@@ -71,7 +40,7 @@ namespace AlquileresMVC.Controllers.Admin
             return View(usuario);
         }
 
-        // GET: Usuario/Edit/5
+        // GET: Extra/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -87,12 +56,10 @@ namespace AlquileresMVC.Controllers.Admin
             return View(usuario);
         }
 
-        // POST: Usuario/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: Extra/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("UsuarioId,Nombre,Apellido1,Apellido2,Telefono,DNI,FechaNacimiento,Correo")] Usuario usuario)
+        public async Task<IActionResult> Edit(int id, Usuario usuario)
         {
             if (id != usuario.Id)
             {
@@ -122,7 +89,7 @@ namespace AlquileresMVC.Controllers.Admin
             return View(usuario);
         }
 
-        // GET: Usuario/Delete/5
+        // GET: Extra/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -140,24 +107,25 @@ namespace AlquileresMVC.Controllers.Admin
             return View(usuario);
         }
 
-        // POST: Usuario/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
+        // POST: Extra/Delete/5
+
+
+        [HttpPost]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var usuario = await _context.Usuarios.FindAsync(id);
-            if (usuario != null)
-            {
-                _context.Usuarios.Remove(usuario);
-            }
-
+            _context.Usuarios.Remove(usuario);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Index", "Usuario");
         }
 
         private bool UsuarioExists(int id)
         {
             return _context.Usuarios.Any(e => e.Id == id);
         }
+
+
+
     }
 }
+
