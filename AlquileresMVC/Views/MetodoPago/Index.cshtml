@@ -1,0 +1,26 @@
+﻿@model IEnumerable<AlquileresMVC.Models.Admin.MetodoPago>
+
+<h2>Lista de Métodos de Pago</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var metodoPago in Model)
+        {
+            <tr>
+                <td>@metodoPago.Nombre</td>
+                <td>
+                    <a asp-controller="MetodoPago" asp-action="Edit" asp-route-id="@metodoPago.Id">Editar</a> |
+                    <a asp-controller="MetodoPago" asp-action="Delete" asp-route-id="@metodoPago.Id">Borrar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Create">Agregar Nuevo Método de Pago</a>

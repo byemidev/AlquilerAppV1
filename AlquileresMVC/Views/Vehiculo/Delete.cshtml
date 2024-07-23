@@ -1,0 +1,27 @@
+﻿@model AlquileresMVC.Models.Admin.Vehiculo
+
+<h2>Eliminar Vehículo</h2>
+
+<h3>¿Está seguro de que desea eliminar este vehículo?</h3>
+<div>
+    <h4>Vehículo</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">Modelo</dt>
+        <dd class="col-sm-10">@Model.Modelo</dd>
+        <dt class="col-sm-2">Marca</dt>
+        <dd class="col-sm-10">@Model.Marca</dd>
+        <dt class="col-sm-2">Descripción</dt>
+        <dd class="col-sm-10">@Model.Descripcion</dd>
+        <dt class="col-sm-2">Precio por día</dt>
+        <dd class="col-sm-10">@Model.precioDia</dd>
+        <dt class="col-sm-2">Imagen URL</dt>
+        <dd class="col-sm-10">@Model.imgURL</dd>
+    </dl>
+</div>
+
+<form asp-action="DeleteConfirmed" method="post">
+    <input type="hidden" asp-for="Id" /> <!-- Ensure this is the correct property -->
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

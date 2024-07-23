@@ -1,71 +1,36 @@
 ﻿@model IEnumerable<AlquileresMVC.Models.Admin.Usuario>
 
-@{
-    ViewData["Title"] = "Index";
-}
+<h2>Lista de Usuarios</h2>
 
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Nombre)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Apellido1)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Apellido2)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Telefono)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DNI)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FechaNacimiento)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Correo)
-            </th>
-            <th></th>
+            <th>Nombre</th>
+            <th>Apellido 1</th>
+            <th>Apellido 2</th>
+            <th>Teléfono</th>
+            <th>DNI</th>
+            <th>Fecha Nacimiento</th>
+            <th>Correo</th>
+            <th>Acciones</th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nombre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Apellido1)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Apellido2)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Telefono)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DNI)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FechaNacimiento)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Correo)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var usuario in Model)
+        {
+            <tr>
+                <td>@usuario.Nombre</td>
+                <td>@usuario.Apellido1</td>
+                <td>@usuario.Apellido2</td>
+                <td>@usuario.Telefono</td>
+                <td>@usuario.DNI</td>
+                <td>@usuario.FechaNacimiento.ToString("yyyy-MM-dd")</td>
+                <td>@usuario.Correo</td>
+                <td>
+                    <a asp-controller="Usuario" asp-action="Edit" asp-route-id="@usuario.Id">Editar</a> |
+                    <a asp-controller="Usuario" asp-action="Delete" asp-route-id="@usuario.Id">Borrar</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

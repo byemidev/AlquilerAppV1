@@ -1,0 +1,14 @@
+﻿@model AlquileresMVC.Models.Admin.MetodoPago
+
+<h2>Agregar Nuevo Método de Pago</h2>
+
+<form asp-action="Create">
+    <div class="form-group">
+        <label asp-for="Nombre"></label>
+        <input asp-for="Nombre" class="form-control" />
+        <span asp-validation-for="Nombre" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Agregar</button>
+</form>
+
+<a asp-action="Index">Volver a la Lista</a>

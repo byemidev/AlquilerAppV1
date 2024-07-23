@@ -45,7 +45,6 @@
 
     .medium-rectangle > div {
         display: flex;
-        flex-wrap: wrap; /* Allow buttons to wrap within their container */
         justify-content: space-between; /* Space out buttons */
     }
 
@@ -76,7 +75,7 @@
     -webkit-user-select: none;
     touch-action: manipulation;
     vertical-align: middle;
-    width: calc(25% - 10px); /* Four buttons per row with space */
+    width: calc(50% - 10px); /* Four buttons per row with space */
     box-sizing: border-box; /* Include padding and border in element's total width */
     z-index: 0;
     position: relative; /* Required for button effects */

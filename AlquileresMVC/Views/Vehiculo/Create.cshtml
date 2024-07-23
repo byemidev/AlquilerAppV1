@@ -1,0 +1,34 @@
+﻿@model AlquileresMVC.Models.Admin.Vehiculo
+
+<h2>Agregar Nuevo Vehículo</h2>
+
+<form asp-action="Create">
+    <div class="form-group">
+        <label asp-for="Modelo"></label>
+        <input asp-for="Modelo" class="form-control" />
+        <span asp-validation-for="Modelo" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Marca"></label>
+        <input asp-for="Marca" class="form-control" />
+        <span asp-validation-for="Marca" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Descripcion"></label>
+        <input asp-for="Descripcion" class="form-control" />
+        <span asp-validation-for="Descripcion" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="precioDia"></label>
+        <input asp-for="precioDia" class="form-control" />
+        <span asp-validation-for="precioDia" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="imgURL"></label>
+        <input asp-for="imgURL" class="form-control" />
+        <span asp-validation-for="imgURL" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Agregar</button>
+</form>
+
+<a asp-action="Index">Volver a la Lista</a>
