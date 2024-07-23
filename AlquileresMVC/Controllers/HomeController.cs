@@ -37,7 +37,7 @@ public class HomeController : Controller
         return View();
     }
 
-    [Authorize]
+    // [Authorize] Para hacer pruebas del CRUD lo desactivo.
     public IActionResult AdminPanel()
     {
         return View();

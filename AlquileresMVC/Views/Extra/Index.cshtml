@@ -1,0 +1,30 @@
+﻿@model IEnumerable<AlquileresMVC.Models.Admin.Extra>
+
+<h2>Lista de Extras</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Precio</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var extra in Model)
+        {
+            <tr>
+                <td>@extra.Nombre</td>
+                <td>@extra.Descripcion</td>
+                <td>@extra.Precio</td>
+                <td>
+                    <a asp-controller="Extra" asp-action="Edit" asp-route-id="@extra.Id">Editar</a> |
+                    <a asp-controller="Extra" asp-action="Delete" asp-route-id="@extra.Id">Borrar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Create">Agregar Nuevo Extra</a>
