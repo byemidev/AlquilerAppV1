@@ -9,28 +9,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 //building DbContext
-//Le paso la conexi�n al contexto de admin
+//Le paso la conexion al contexto de admin
 builder.Services.AddDbContext<AdminDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString
      ("DefaultConnection")));
 
-
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-
-
-builder.Services.AddDbContext<AppDbContext>(
-    options => options.UseSqlServer(connectionString));
-
-builder.Services.AddIdentity<AppUser, IdentityRole>(
-    options =>
-    {
-        options.Password.RequiredUniqueChars = 0;
-        options.Password.RequireUppercase = false;
-        options.Password.RequiredLength = 8;
-        options.Password.RequireNonAlphanumeric = false;
-        options.Password.RequireLowercase = false;
-    })
-    .AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
 
 //buiding services for can be using DAO in controllers
 builder.Services.AddTransient<IUsuarioDAO, UsuarioDAO>();
