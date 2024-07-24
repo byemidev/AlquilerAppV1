@@ -11,18 +11,22 @@ public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
     private readonly IConfiguration _configuration;
-    private readonly IUsuarioDAO _usuarioDAO;  
+    private readonly IIndexDAO _indexDAO;  
     
-    public HomeController(ILogger<HomeController> logger, IConfiguration config, IUsuarioDAO usuario)
+    public HomeController(ILogger<HomeController> logger, IConfiguration config, IIndexDAO indexDAO)
     {
         _logger = logger;
         _configuration = config;    
-        _usuarioDAO = usuario;
+        _indexDAO = indexDAO;
     }
+
+    
+
 
     public IActionResult Index()
     {
-        return View();
+        var items = _indexDAO.GetVehiculos();   
+        return View(items);
     }
 
     public IActionResult Login() { 

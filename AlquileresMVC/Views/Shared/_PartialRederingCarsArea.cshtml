@@ -1,0 +1,27 @@
+﻿@model IEnumerable<AlquileresMVC.Models.Admin.Vehiculo>
+
+@{
+    Layout = "";
+}
+
+<h2> Cars area : implemented, remains add new migrations , add 'Vehiculos' and test how its working </h2>
+
+<!--Debo crear una instacia de la lista y usar un controlador vehiculo para recoger los modelos , uso los DAO por que el entity de CRUD necesitara autorizacion-->
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="card">
+                    <img src="@item.imgURL" alt="Image" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Modelo </h5>
+                        <p class="card-text">@item.Descripcion</p>
+                        <p class="card-text">Price: @item.precioDia</p>
+                        <a href="@Url.Action("Details", "Vehiculo", new { id = item.Id })" class="btn btn-primary">Ver detalles</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
