@@ -1,4 +1,4 @@
-
+ 
 using AlquileresMVC.Models.Admin;
 using AlquileresMVC.Repositories;
 using Microsoft.AspNetCore.Authorization;
@@ -19,9 +19,6 @@ public class HomeController : Controller
         _configuration = config;    
         _usuarioDAO = usuario;
     }
-
-    
-
 
     public IActionResult Index()
     {
